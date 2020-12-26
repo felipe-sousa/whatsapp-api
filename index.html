@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.css"
+      media="screen,projection"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        margin: auto;
+        height: 90vh;
+        width: 100%;
+      }
+      .card-action {
+        text-align: right;
+      }
+      .spacer {
+        height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Whatsapp Send Message</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container valign-wrapper">
+      <div class="row" style="width: 600px">
+        <div class="col s12">
+          <div class="card small">
+            <div class="card-content">
+              <span class="card-title">Enviar nova mensagem</span>
+              <div class="spacer"></div>
+              <form>
+                <div class="input-field col s6 phone">
+                  <input type="text" class="validate" id="phone2" />
+                  <label for="phone2">Número</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate" id="message2" />
+                  <label for="message2">Mensagem (opcional)</label>
+                </div>
+                <div class="card-action">
+                  <a href="#" onclick="sendMessage()" class="btn waves-effect waves-light">
+                    Enviar
+                    <i class="material-icons right">send</i></a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/vanilla-masker.min.js"></script>
+    <script>
+      VMasker(document.querySelector(".phone")).maskPattern("(99) 99999-9999");
+
+      function sendMessage() {
+        var phone = document.getElementById("phone2").value.replace(/\D/g,'');
+        var message = document.getElementById("message2").value;
+        
+        var url = "https://api.whatsapp.com/send?phone=55"+phone+"&text="+message;
+        
+        window.open(url); //Abre na mesma guia
+        //window.open(url, '_blank'); //Abre em nova guia
+      }
+    </script>
+  </body>
+</html>
