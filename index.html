@@ -75,9 +75,9 @@
         var phone = document.getElementById("phone2").value.replace(/\D/g,'');
         var message = document.getElementById("message2").value;
         
-        var url = "https://api.whatsapp.com/send?phone=55"+phone+"&text="+message;
+        var url = "https://web.whatsapp.com/send?phone=55"+phone+"&text="+message;
         
-        window.open(url); //Abre na mesma guia
+        window.open(url, "_self"); //Abre na mesma guia
         //window.open(url, '_blank'); //Abre em nova guia
       }
     </script>
